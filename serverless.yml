@@ -1,0 +1,15 @@
+service: medium-examples
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+    DB_CONNECT_STRING: jdbc:oracle:thin:@test:1521:XE
+    DB_SCHEMA: test
+    DB_PASSWORD: test
+
+functions:
+  oraclelib:
+    handler: handler.oraclelib
+    layers:
+      - arn:aws:lambda:us-east-1:11111111111:layer:oraclelib_layer:1
